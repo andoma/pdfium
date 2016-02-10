@@ -76,7 +76,7 @@ struct md5_context {
     (((uint8_t*)b)[(i) + 2]) = (uint8_t)(((n) >> 16) & 0xFF); \
     (((uint8_t*)b)[(i) + 3]) = (uint8_t)(((n) >> 24) & 0xFF); \
   }
-void md5_process(struct md5_context* ctx, const uint8_t data[64]) {
+static void md5_process(struct md5_context* ctx, const uint8_t data[64]) {
   FX_DWORD A, B, C, D, X[16];
   GET_FX_DWORD(X[0], data, 0);
   GET_FX_DWORD(X[1], data, 4);
